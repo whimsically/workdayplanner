@@ -23,8 +23,6 @@ $(function () {
   allBlocks.forEach(getFromStorage);
 
   function compareTime (item) {
-    //clearing previous styling
-    item.classList.remove("past", "present", "future");
     var currentHour = dayjs().hour();
     //selects characters in the id starting at the 5th index, which should return the hour (i.e. 12)
     var currentBlock = item.id.slice(5);
@@ -45,5 +43,6 @@ $(function () {
     item.querySelector("textarea").value = currentItem;
   }
 
-  // TODO: Add code to display the current date in the header of the page.
+  //shows current date in currentDay element at top of page
+  document.getElementById("currentDay").innerHTML = dayjs().format('dddd, MMMM DD');
 });
