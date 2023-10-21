@@ -19,6 +19,8 @@ $(function () {
   var allBlocks = document.querySelectorAll(".time-block");
   //runs compareTime function on each block
   allBlocks.forEach(compareTime);
+  //runs getFromStorage on each block
+  allBlocks.forEach(getFromStorage);
 
   function compareTime (item) {
     //clearing previous styling
@@ -37,9 +39,11 @@ $(function () {
     }
   }
 
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
+  //gets each item from storage and then puts its value in corresponding textarea
+  function getFromStorage (item) {
+    var currentItem = localStorage.getItem(item.id);
+    item.querySelector("textarea").value = currentItem;
+  }
+
   // TODO: Add code to display the current date in the header of the page.
 });
